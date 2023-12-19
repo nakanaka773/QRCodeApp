@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct SourceInputView: View {
+    @Binding var source : String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Text("Campaign Source")
+                    .font(.footnote)
+                    .bold()
+                Text("*")
+                    .font(.footnote)
+                    .bold()
+                    .foregroundStyle(.red)
+                Spacer()
+            }
+            TextField("入力してください", text: $source)
+                .textFieldStyle(.roundedBorder)
+                .keyboardType(.URL)
+                .font(.title3)
+        }
+        .padding(6)
     }
 }
 
 #Preview {
-    SourceInputView()
+    SourceInputView(source: .constant(""))
 }

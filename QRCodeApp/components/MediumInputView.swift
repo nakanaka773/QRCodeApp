@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct MediumInputView: View {
+    @Binding var medium : String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Text("Campaign Medium")
+                    .font(.footnote)
+                    .bold()
+                Text("*")
+                    .font(.footnote)
+                    .bold()
+                    .foregroundStyle(.red)
+                Spacer()
+            }
+            TextField("入力してください", text: $medium)
+                .textFieldStyle(.roundedBorder)
+                .keyboardType(.URL)
+                .font(.title3)
+        }
+        .padding(6)
     }
 }
 
+
 #Preview {
-    MediumInputView()
+    MediumInputView(medium: .constant(""))
 }

@@ -12,6 +12,10 @@
 		5BF7136F2B31A6E600D8B280 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7136E2B31A6E600D8B280 /* Item.swift */; };
 		5BF713712B31A6E800D8B280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF713702B31A6E800D8B280 /* Assets.xcassets */; };
 		5BF713742B31A6E800D8B280 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BF713732B31A6E800D8B280 /* Preview Assets.xcassets */; };
+		5BF7137B2B31A74000D8B280 /* CreateHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7137A2B31A74000D8B280 /* CreateHomeView.swift */; };
+		5BF9594E2B31D40D00A95137 /* URLInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9594D2B31D40D00A95137 /* URLInputView.swift */; };
+		5BF959502B31DC6100A95137 /* SourceInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF9594F2B31DC6100A95137 /* SourceInputView.swift */; };
+		5BF959522B31DD0D00A95137 /* MediumInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF959512B31DD0D00A95137 /* MediumInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		5BF7136E2B31A6E600D8B280 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		5BF713702B31A6E800D8B280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BF713732B31A6E800D8B280 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5BF7137A2B31A74000D8B280 /* CreateHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHomeView.swift; sourceTree = "<group>"; };
+		5BF9594D2B31D40D00A95137 /* URLInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLInputView.swift; sourceTree = "<group>"; };
+		5BF9594F2B31DC6100A95137 /* SourceInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceInputView.swift; sourceTree = "<group>"; };
+		5BF959512B31DD0D00A95137 /* MediumInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,8 @@
 			children = (
 				5BF7136A2B31A6E600D8B280 /* QRCodeAppApp.swift */,
 				5BF7136C2B31A6E600D8B280 /* ContentView.swift */,
+				5BF9594C2B31D3F200A95137 /* components */,
+				5BF7137A2B31A74000D8B280 /* CreateHomeView.swift */,
 				5BF7136E2B31A6E600D8B280 /* Item.swift */,
 				5BF713702B31A6E800D8B280 /* Assets.xcassets */,
 				5BF713722B31A6E800D8B280 /* Preview Content */,
@@ -68,6 +78,16 @@
 				5BF713732B31A6E800D8B280 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5BF9594C2B31D3F200A95137 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				5BF9594D2B31D40D00A95137 /* URLInputView.swift */,
+				5BF9594F2B31DC6100A95137 /* SourceInputView.swift */,
+				5BF959512B31DD0D00A95137 /* MediumInputView.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,8 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BF959502B31DC6100A95137 /* SourceInputView.swift in Sources */,
+				5BF7137B2B31A74000D8B280 /* CreateHomeView.swift in Sources */,
 				5BF7136D2B31A6E600D8B280 /* ContentView.swift in Sources */,
+				5BF9594E2B31D40D00A95137 /* URLInputView.swift in Sources */,
 				5BF7136F2B31A6E600D8B280 /* Item.swift in Sources */,
+				5BF959522B31DD0D00A95137 /* MediumInputView.swift in Sources */,
 				5BF7136B2B31A6E600D8B280 /* QRCodeAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +303,7 @@
 				DEVELOPMENT_TEAM = QF9PGZ7CNK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We want to save the photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,6 +333,7 @@
 				DEVELOPMENT_TEAM = QF9PGZ7CNK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We want to save the photo";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -25,8 +25,7 @@ struct QRCodeAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CreateHomeView()
         }
-        .modelContainer(sharedModelContainer)
     }
 }

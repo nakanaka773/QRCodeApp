@@ -10,7 +10,7 @@ import CoreImage.CIFilterBuiltins
 import UIKit
 import Photos
 
-struct SampleView: View {
+struct CreateHomeView: View {
     @State private var url : String = ""
     @State private var source : String = ""
     @State private var medium : String = ""
@@ -18,6 +18,8 @@ struct SampleView: View {
     @State private var qrShow = false
     
     @State var showAlert = false
+    @State var fullAlert = false
+    @State var clipAlert = false
 
     var combinedURL: String {
         return url + "?utm_source=" + source + "&utm_medium=" + medium
@@ -49,9 +51,15 @@ struct SampleView: View {
                     }
                     Spacer()
                     Button {
+                        clipAlert = true
                         UIPasteboard.general.string = combinedURL
                     } label: {
                         Image(systemName: "doc.on.doc")
+                    }
+                    .alert("コピー", isPresented: $clipAlert) {
+                        Text("了解")
+                    } message: {
+                        Text("クリップボードにコピーしました")
                     }
                 }
                 .padding()
@@ -66,9 +74,18 @@ struct SampleView: View {
             }
             .padding()
             Button {
-                if url == "" { return }
-                if source == "" { return }
-                if medium == "" { return }
+                if url == "" {
+                    fullAlert = true
+                    return
+                }
+                if source == "" {
+                    fullAlert = true
+                    return
+                }
+                if medium == "" {
+                    fullAlert = true
+                    return
+                }
                 self.qrShow = true
             } label: {
                 Text("QRコードを作成")
@@ -77,6 +94,11 @@ struct SampleView: View {
                     .background(.cyan)
                     .bold()
                     .font(.title2)
+            }
+            .alert("不十分", isPresented: $fullAlert) {
+                Text("戻る")
+            } message: {
+                Text("３つ全てに文字を入力する必要があります")
             }
         }
         .padding()
@@ -89,12 +111,21 @@ struct SampleView: View {
                             .bold()
                         Spacer()
                     }
+                    .padding(4)
                     HStack{
 
                         Text(combinedURL)
                             .font(.title3)
         
                         Spacer()
+                    }
+                    .padding()
+                    .bold()
+                    .frame(width: 350)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(lineWidth: 2)
+                            .fill(.gray)
                     }
   
                 }
@@ -104,7 +135,8 @@ struct SampleView: View {
                  
                 Spacer()
                 Button {
-                    saveImageToCameraRoll(image: generateQR(from: combinedURL))
+                    showAlert = true
+                    
                 } label: {
                     Text("ダウンロード")
                         .frame(width: 350, height: 60)
@@ -112,6 +144,13 @@ struct SampleView: View {
                         .background(.cyan)
                         .bold()
                         .font(.title2)
+                }
+                .alert("保存する", isPresented: $showAlert) {
+                    Button("了解") {
+                        saveImageToCameraRoll(image: generateQR(from: combinedURL))
+                                }
+                } message: {
+                    Text("QRコードをダウンロードします")
                 }
 
             }
@@ -150,5 +189,5 @@ struct SampleView: View {
 
 
 #Preview {
-    SampleView()
+    CreateHomeView()
 }

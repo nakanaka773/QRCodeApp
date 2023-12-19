@@ -7,19 +7,29 @@
 
 import SwiftUI
 
-struct InputView: View {
+struct URLInputView: View {
     @Binding var url : String
     var body: some View {
-        HStack {
-            Text("URL")
+        VStack {
+            HStack {
+                Text("URL")
+                    .font(.footnote)
+                    .bold()
+                Text("*")
+                    .font(.footnote)
+                    .bold()
+                    .foregroundStyle(.red)
+                Spacer()
+            }
             TextField("入力してください", text: $url)
                 .textFieldStyle(.roundedBorder)
-            .padding()
+                .keyboardType(.URL)
+                .font(.title3)
         }
-        .padding()
+        .padding(6)
     }
 }
 
 #Preview {
-    InputView(url: .constant("fafafa"))
+    URLInputView(url: .constant("fafafa"))
 }
